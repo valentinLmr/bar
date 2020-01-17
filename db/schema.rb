@@ -10,9 +10,123 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_01_16_182445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "appetizers", force: :cascade do |t|
+    t.string "name"
+    t.text "recipe"
+    t.integer "price"
+    t.bigint "menu_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "stock"
+    t.index ["menu_id"], name: "index_appetizers_on_menu_id"
+  end
+
+  create_table "commands", force: :cascade do |t|
+    t.integer "number_of_diner"
+    t.boolean "states"
+    t.date "times"
+    t.text "appet", default: [], array: true
+    t.bigint "table_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["table_id"], name: "index_commands_on_table_id"
+    t.index ["user_id"], name: "index_commands_on_user_id"
+  end
+
+  create_table "deserts", force: :cascade do |t|
+    t.string "name"
+    t.text "recipe"
+    t.integer "price"
+    t.bigint "menu_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_deserts_on_menu_id"
+  end
+
+  create_table "drinks", force: :cascade do |t|
+    t.string "name"
+    t.text "recipe"
+    t.integer "price"
+    t.bigint "menu_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_drinks_on_menu_id"
+  end
+
+  create_table "main_courses", force: :cascade do |t|
+    t.string "name"
+    t.text "recipe"
+    t.integer "price"
+    t.bigint "menu_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_main_courses_on_menu_id"
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.bigint "table_id"
+    t.bigint "restaurant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_menus_on_restaurant_id"
+    t.index ["table_id"], name: "index_menus_on_table_id"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "phone_number"
+    t.string "name"
+    t.string "address"
+    t.integer "note"
+    t.string "email"
+    t.text "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_restaurants_on_user_id"
+  end
+
+  create_table "starters", force: :cascade do |t|
+    t.string "name"
+    t.text "recipe"
+    t.integer "price"
+    t.bigint "menu_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_starters_on_menu_id"
+  end
+
+  create_table "tables", force: :cascade do |t|
+    t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "appetizers", "menus"
+  add_foreign_key "commands", "tables"
+  add_foreign_key "commands", "users"
+  add_foreign_key "deserts", "menus"
+  add_foreign_key "drinks", "menus"
+  add_foreign_key "main_courses", "menus"
+  add_foreign_key "menus", "restaurants"
+  add_foreign_key "menus", "tables"
+  add_foreign_key "restaurants", "users"
+  add_foreign_key "starters", "menus"
 end
