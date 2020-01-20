@@ -1,0 +1,21 @@
+<div class="drinks_category hidden">
+  <h1> Que souhaitez-vous boire ?</h1>
+  <li>
+    <ul><button id="soft">Soft</button></ul>
+    <ul><button id="alcool">Alcool</button></ul>
+    <ul><button id="hot_drinks">Boissons chaudes</button></ul>
+  </li>
+</div>
+
+<div class="soft">
+  <%= @table.restaurant.menu.appetizers.each do |appetizer| %>
+    <h1 class="Alldrinks"><%= appetizer.name%> <%  %></h1>
+  <% end %>
+</div>
+
+<div class="formulaire_command">
+ <%= f.input :appet, input_html: {id: "appet"}  %>
+</div>
+
+
+<% end %>

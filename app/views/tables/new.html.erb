@@ -1,2 +1,4 @@
-<h1>Tables#new</h1>
-<p>Find me in app/views/tables/new.html.erb</p>
+<%= simple_form_for [@restaurant, @table] do |f| %>
+<%= f.input :number %>
+<%= f.submit "valider" %>
+<% end %>
