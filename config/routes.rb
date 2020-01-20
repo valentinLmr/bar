@@ -1,47 +1,24 @@
 Rails.application.routes.draw do
 
-  get 'drinks/index'
-  get 'drinks/show'
-  get 'drinks/new'
-  get 'drinks/create'
-  get 'drinks/edit'
-  get 'drinks/update'
-  get 'drinks/destroy'
-  get 'appetizers/index'
-  get 'appetizers/show'
-  get 'appetizers/new'
-  get 'appetizers/create'
-  get 'appetizers/edit'
-  get 'appetizers/update'
-  get 'appetizers/destroy'
-  get 'menu/index'
-  get 'menu/show'
-  get 'menu/new'
-  get 'menu/create'
-  get 'menu/edit'
-  get 'menu/update'
-  get 'menu/destroy'
-  get 'commands/index'
-  get 'commands/show'
-  get 'commands/new'
-  get 'commands/create'
-  get 'commands/edit'
-  get 'commands/update'
-  get 'commands/destroy'
-  get 'tables/index'
-  get 'tables/show'
-  get 'tables/new'
-  get 'tables/create'
-  get 'tables/edit'
-  get 'tables/update'
-  get 'tables/destroy'
-  get 'restaurants/index'
-  get 'restaurants/show'
-  get 'restaurants/new'
-  get 'restaurants/create'
-  get 'restaurants/edit'
-  get 'restaurants/update'
-  get 'restaurants/destroy'
+
+  resources :restaurants do
+    resources :tables
+  end
+
+  resources :tables do
+    resources :commands
+  end
+
+  resources :menus do
+    resources :appetizers
+  end
+
+  resources :commands do
+    resources :dishescommands
+  end
+
+
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end

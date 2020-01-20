@@ -1,4 +1,4 @@
 class Table < ApplicationRecord
-  has_one :menu
+  belongs_to :restaurant
   validates :number, presence: true
 end
