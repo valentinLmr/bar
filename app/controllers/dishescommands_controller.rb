@@ -15,8 +15,9 @@ class DishescommandsController < ApplicationController
   def create
     @command = Command.find(params[:command_id])
     @dishcommand = Dishescommand.new(dishescommands_params)
+    @dishcommand.command = @command
     if @dishcommand.save!
-      Redirect_to root_path
+      redirect_to new_command_dishescommand_path(@command)
     end
   end
 
@@ -31,7 +32,7 @@ class DishescommandsController < ApplicationController
 
   private
 
-  def command_params
-    params.require(:command).permit(:appetizer, :number_of_diner)
+  def dishescommands_params
+    params.require(:dishescommand).permit(:appetizer_id)
   end
 end

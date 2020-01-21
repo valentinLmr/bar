@@ -1,5 +1,9 @@
 import "bootstrap";
-import { selectSetOfDiner } from "./plugins/creationCommand";
 
-selectSetOfDiner();
+import { selectDrinks } from "./plugins/selectDrinkCategory";
+import { copyDataId } from "./plugins/addDrinksToCommand";
+
+
+selectDrinks();
+copyDataId();
 

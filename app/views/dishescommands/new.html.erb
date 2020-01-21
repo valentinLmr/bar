@@ -1,21 +1,25 @@
-<h1>What would you drink ? </h1>
 
-<div class="drinks_category hidden">
+<div class="drinks_category">
   <h1> Que souhaitez-vous boire ?</h1>
   <li>
-    <ul><button id="soft">Soft</button></ul>
-    <ul><button id="alcool">Alcool</button></ul>
-    <ul><button id="hot_drinks">Boissons chaudes</button></ul>
+    <ul id="softs">Soft</ul>
+    <ul id="alcools">Alcool</ul>
+    <ul id="hot_drinks">Boissons chaudes</ul>
   </li>
 </div>
 
-<div class="soft">
-  <%= @command.table.restaurant.menu.appetizers.each do |appetizer| %>
-    <h1 class="Alldrinks"><%= appetizer.name%> <%  %></h1>
+<div class="all_softs hidden ">
+  <% @command.table.restaurant.menu.appetizers.each do |appetizer| %>
+    <h1 class="soft" data-id="<%= appetizer.id%>" ><%= appetizer.name%> <%  %></h1>
   <% end %>
 </div>
 
-<% end %>
+<div class="form_to_select_drink hidden">
+  <%= simple_form_for [@command, @dishcommand] do |f| %>
+    <%= f.input :appetizer_id, :class => "input_select_drink", :value => "1"%>
+    <%= f.submit "done", :class =>"submit_order_dish" %>
+  <% end %>
+</div>
 
 
 
