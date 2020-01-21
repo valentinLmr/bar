@@ -1,2 +1,21 @@
-<h1>Dishescommands#new</h1>
-<p>Find me in app/views/dishescommands/new.html.erb</p>
+<h1>What would you drink ? </h1>
+
+<div class="drinks_category hidden">
+  <h1> Que souhaitez-vous boire ?</h1>
+  <li>
+    <ul><button id="soft">Soft</button></ul>
+    <ul><button id="alcool">Alcool</button></ul>
+    <ul><button id="hot_drinks">Boissons chaudes</button></ul>
+  </li>
+</div>
+
+<div class="soft">
+  <%= @command.table.restaurant.menu.appetizers.each do |appetizer| %>
+    <h1 class="Alldrinks"><%= appetizer.name%> <%  %></h1>
+  <% end %>
+</div>
+
+<% end %>
+
+
+

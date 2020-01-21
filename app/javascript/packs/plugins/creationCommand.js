@@ -33,8 +33,6 @@ allSoft.forEach((softs)=>{
 
 
 
-
-
 const selectdrinks = () => {
   const soft = document.getElementById("soft")
   const alcool = document.getElementById("alcool")
@@ -44,9 +42,6 @@ const selectdrinks = () => {
     showSoft(event.currentTarget)
   );
 }
-
-
-
 
 
 
