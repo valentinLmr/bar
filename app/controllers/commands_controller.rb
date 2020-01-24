@@ -18,7 +18,7 @@ class CommandsController < ApplicationController
     @command = Command.new(command_params)
     @command.table = @table
     if @command.save!
-            redirect_to new_command_dishescommand_path(@command)
+      redirect_to new_command_dishescommand_path(@command)
     end
   end
 

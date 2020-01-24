@@ -1,7 +1,7 @@
 <div class="start">
   <h1>Bonjours, bienvenu chez <%=@table.restaurant.name  %></h1>
-  <%= simple_form_for [@table, @command] do |f| %>
-    <%= f.input :number_of_diner, label: 'Combien seriez-vous ?', input_html: { value: '1'} %>
+  <%= simple_form_for([@table, @command] ,remote: false)  do|f| %>
+    <%= f.input :number_of_diner, label: 'Combien seriez-vous ?', input_html: { value: ''} %>
     <%= f.submit "valider" %>
     <% end %>
 </div>

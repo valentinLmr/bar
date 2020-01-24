@@ -1,9 +1,10 @@
 
 const addDrinksToOrder = (id) => {
-  const addNewdish = document.getElementById("dishescommand_appetizer_id");
+  const addNewdish = document.getElementById("dishescommand_drink_id");
+  console.log(id)
+  console.log(addNewdish)
   addNewdish.value = id
   document.querySelector('.submit_order_dish').click()
-
 }
 
 const copyDataId = () => {
@@ -11,6 +12,7 @@ const copyDataId = () => {
   selectedSofts.forEach((soft) => {
     soft.addEventListener("click", (event) =>
       addDrinksToOrder(event.currentTarget.dataset.id)
+
     );
   });
 }

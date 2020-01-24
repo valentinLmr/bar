@@ -1,4 +1,4 @@
-<%= simple_form_for [@restaurant, @table] do |f| %>
+<%= simple_form_for([@restaurant, @table] ,remote: false)  do |f| %>
 <%= f.input :number %>
 <%= f.submit "valider" %>
 <% end %>

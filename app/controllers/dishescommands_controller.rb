@@ -4,7 +4,7 @@ class DishescommandsController < ApplicationController
   end
 
   def show
-        @dishcommand = DishesCommands.find(params[:id])
+    @dishcommand = DishesCommands.find(params[:id])
   end
 
   def new
@@ -17,7 +17,15 @@ class DishescommandsController < ApplicationController
     @dishcommand = Dishescommand.new(dishescommands_params)
     @dishcommand.command = @command
     if @dishcommand.save!
-      redirect_to new_command_dishescommand_path(@command)
+      respond_to do |format|
+        format.html { redirect_to command_path(@command) }
+        format.js {}
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to command_path(@command) }
+        format.js {}
+      end
     end
   end
 
@@ -33,6 +41,6 @@ class DishescommandsController < ApplicationController
   private
 
   def dishescommands_params
-    params.require(:dishescommand).permit(:appetizer_id)
+    params.require(:dishescommand).permit(:drink_id)
   end
 end
