@@ -46,8 +46,26 @@ nono_menu.save!
 
 puts "creating Appetizer"
 
-toast_chevre = Appetizer.create!(name: 'toast_chevre', price: '5.00', menu: nono_menu)
-toast_chevre.save!
+
+Drink.create!(name: 'Anosteke', price: '5.00', menu_id: 1)
+Drink.create!(name: 'Leffe 25 Cl', price: '5.00', menu_id: 1)
+Drink.create!(name: 'Leffe 50 Cl', price: '5.00', menu_id: 1)
+Drink.create!(name: 'Gulden Draak 33 Cl', price: '5.00', menu_id: 1)
+Drink.create!(name: 'Paix Dieux 50 Cl', price: '5.00', menu_id: 1)
+Drink.create!(name: '3 monts 33 Cl', price: '5.00', menu_id: 1)
+Drink.create!(name: "Ch'ti", price: '5.00', menu_id: 1)
+Drink.create!(name: 'Coca Cola zero', price: '5.00', menu_id: 1)
+Drink.create!(name: 'Coca Cola light', price: '5.00', menu_id: 1)
+Drink.create!(name: 'Oasis', price: '5.00', menu_id: 1)
+Drink.create!(name: 'Ice Tie', price: '5.00', menu_id: 1)
+Drink.create!(name: 'Perrier', price: '5.00', menu_id: 1)
+Drink.create!(name: 'Evian', price: '5.00', menu_id: 1)
+Drink.create!(name: 'Jus de tomate', price: '5.00', menu_id: 1)
+Drink.create!(name: 'Jus de Ananas', price: '5.00', menu_id: 1)
+Drink.create!(name: 'Jus de Pomme', price: '5.00', menu_id: 1)
+Drink.create!(name: 'Jus de Orane', price: '5.00', menu_id: 1)
+Drink.create!(name: 'Jus de ACE', price: '5.00', menu_id: 1)
+
 
 puts "create command"
 
