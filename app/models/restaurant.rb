@@ -6,4 +6,5 @@ class Restaurant < ApplicationRecord
   validates :description, presence: true
   has_many :tables
   has_one :menu
+  belongs_to :user
 end
