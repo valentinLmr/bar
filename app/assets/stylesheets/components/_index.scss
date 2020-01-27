@@ -7,7 +7,7 @@
 .drinks_category {
   font-size: 1.5rem;
     text-align: center;
-    padding-top: 3rem;
+
 }
 
 .soft {
@@ -19,5 +19,26 @@
   }
 .drink_per_5 h1 {
   margin: auto;
-  font-size: 16px;
+  font-size: 10px;
+}
+
+.carousel-inner h1 {
+  text-align: center
+}
+
+.container_all_drinks {
+  height: 100rem;
+}
+
+.carousel {
+  margin-top: 8rem;
+}
+
+.card {
+  margin: auto;
+  width:75px;
+}
+
+.card img {
+  object-fit: cover;
 }
