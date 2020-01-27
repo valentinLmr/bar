@@ -4,6 +4,11 @@
 @import "navbar";
 @import "form_to_new_command";
 
+#title {
+  color: white;
+  text-align: center;
+}
+
 .drinks_category {
   font-size: 1.5rem;
     text-align: center;
@@ -17,13 +22,15 @@
 .drink_per_5 {
   display: flex;
   }
-.drink_per_5 h1 {
+.drink_per_5 h2 {
   margin: auto;
   font-size: 10px;
+
 }
 
 .carousel-inner h1 {
-  text-align: center
+  text-align: center;
+  color: white;
 }
 
 .container_all_drinks {
@@ -31,7 +38,7 @@
 }
 
 .carousel {
-  margin-top: 8rem;
+  margin-top: 3rem;
 }
 
 .card {
@@ -41,4 +48,12 @@
 
 .card img {
   object-fit: cover;
+}
+
+body {
+  background-color: #2D232E;
+}
+
+.btn {
+    margin: 3rem 0 0 10rem;
 }
