@@ -16,9 +16,8 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'pundit'
-gem 'active_model_otp'
-gem 'rqrcode'
 
+gem 'rqrcode'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
