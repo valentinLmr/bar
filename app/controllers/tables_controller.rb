@@ -1,4 +1,5 @@
 class TablesController < ApplicationController
+
   def index
   end
 
@@ -14,6 +15,7 @@ class TablesController < ApplicationController
       module_size: 6
     )
     authorize(@table)
+
   end
 
   def new
