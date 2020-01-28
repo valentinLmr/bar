@@ -1,6 +1,6 @@
 # Load the Rails application.
 require_relative 'application'
-require 'rqrcode'
+# require 'rqrcode'
 
 
 # Initialize the Rails application.
