@@ -16,6 +16,8 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'pundit'
+gem 'active_model_otp'
+gem 'rqrcode'
 
 
 group :development do
