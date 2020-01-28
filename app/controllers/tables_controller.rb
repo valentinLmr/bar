@@ -1,21 +1,20 @@
-class TablesController < ApplicationController
+require 'rqrcode'
 
+class TablesController < ApplicationController
   def index
   end
 
   def show
     @table = Table.find(params[:id])
-    @qr = @table.qr
-    @qrcode = RQRcode::QRcode.new(@qr)
-
-    @svg = @qrcode.as_svg(
+    qrcode = RQRCode::QRCode.new(table_path(@table))
+    @qr = qrcode.as_svg(
       offset: 0,
       color: '000',
       shape_rendering: 'crispEdges',
-      module_size: 6
-    )
+      module_size: 6,
+      standalone: true
+    ).html_safe
     authorize(@table)
-
   end
 
   def new
@@ -29,10 +28,11 @@ class TablesController < ApplicationController
     @table = Table.new(table_params)
     @table.restaurant = @restaurant
     authorize(@table)
-    if @table.save!
-
+    if @table.save
       redirect_to table_path(@table)
-  end
+    else
+      render :new
+    end
   end
 
   def edit
