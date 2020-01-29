@@ -1,17 +1,20 @@
 class RestaurantsController < ApplicationController
-
   def index
     @restaurants = Restaurant.all
   end
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @menu = Menu.new
+    authorize(@menu)
     authorize(@restaurant)
+
   end
 
   def new
     @user = current_user
     @restaurant = Restaurant.new
+
     authorize(@restaurant)
   end
 
