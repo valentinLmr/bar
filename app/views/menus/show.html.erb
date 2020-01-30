@@ -1,2 +1,18 @@
-<%= render "drinks/new" %>
+
+<div class="show_menu d-flex">
+  <div class="menu">
+    <h1><%= @menu.restaurant.name %></h1>
+    <div id="drinks">
+      <% if @menu.drinks.blank? %>
+        Add your first Drink
+      <% else %>
+        <% @menu.drinks.each do |drink| %>
+          <%= render 'drinks/show' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'drinks/form'%>
+</div>
+
 

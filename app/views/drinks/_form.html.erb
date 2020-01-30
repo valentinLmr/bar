@@ -1,0 +1,10 @@
+<div class="container">
+  <%= simple_form_for([@menu, @drink] ,remote: true) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :price %>
+    <%= f.input :category, collection: [['Soft', 'Soft'], ['Alcool', 'Alcool'], ['Hotdrink', 'Hotdrink']] %>
+    <%= f.input :photo %>
+    <%= f.submit "Créer boisson" %>
+  <% end %>
+</div>
+
