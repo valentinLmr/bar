@@ -4,7 +4,9 @@ class MenusController < ApplicationController
 
   def show
     @menu = Menu.find(params[:id])
+    @drink = Drink.new
     authorize(@menu)
+    authorize(@drink)
   end
 
   def new

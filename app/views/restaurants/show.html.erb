@@ -1,8 +1,6 @@
 <h1><%= @restaurant.name %></h1>
 <%= link_to "créer une table", new_restaurant_table_path(@restaurant.id) %>
+<%= render "menus/new" %>
 
-<%= simple_form_for([@restaurant, @menu] ,remote: false)  do |f| %>
-<%= f.submit "créer un menu" %>
-<% end %>
 
 
