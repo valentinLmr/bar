@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :menus do
-    resources :appetizers
+    resources :drinks
   end
 
   resources :commands do
