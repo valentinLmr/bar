@@ -1,0 +1,8 @@
+  <% @restaurants.each do |restaurant| %>
+  <div class="restaurant_dashboard">
+    <h1><%= restaurant.name %></h1>
+    <%= link_to restaurant_path(restaurant), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer votre restaurant?" } do %>
+      <i class="far fa-trash-alt"></i>
+    <% end %>
+  </div>
+<% end %>

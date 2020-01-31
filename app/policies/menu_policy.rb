@@ -16,4 +16,16 @@ class MenuPolicy < ApplicationPolicy
     def show?
       true
     end
+
+     def destroy?
+    record.user == user
+  end
+
+  def suppression?
+    record.user == user
+  end
+
+  def dashboard?
+    true
+  end
 end

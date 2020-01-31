@@ -1,6 +1,7 @@
 class Table < ApplicationRecord
   belongs_to :restaurant
   validates :number, presence: true
+  has_many :commands, dependent: :destroy
 
   # after_create :generate_qr
 
