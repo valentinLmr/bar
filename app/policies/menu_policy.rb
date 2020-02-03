@@ -5,19 +5,19 @@ class MenuPolicy < ApplicationPolicy
     end
   end
 
-    def new?
-      create?
-    end
+  def new?
+    create?
+  end
 
-    def create?
-      true
-    end
+  def create?
+    true
+  end
 
-    def show?
-      true
-    end
+  def show?
+    true
+  end
 
-     def destroy?
+  def destroy?
     record.user == user
   end
 

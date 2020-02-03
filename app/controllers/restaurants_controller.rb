@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
     @menu = Menu.new
     authorize(@menu)
     authorize(@restaurant)
-
+    @existingmenus = @restaurant.menus.all
   end
 
   def new
