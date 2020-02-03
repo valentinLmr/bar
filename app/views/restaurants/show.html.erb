@@ -1,6 +1,46 @@
-<h1><%= @restaurant.name %></h1>
-<%= link_to "créer une table", new_restaurant_table_path(@restaurant.id) %>
-<%= render "menus/new" %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <%= @restaurant.name %>
+</div>
+
+<div class="tables">
+  <div class="table">
+    <% if @restaurant.tables.blank? %>
+     <h3> vous n'avez pas encore de table</h3>
+    <% else %>
+      <% @restaurant.tables.each do |table|  %>
+        <h4> <%= table.number %> </h4>
+        <% if table.commands.blank? %>
+              <h3>Aucune commande pour cette table</h3>
+        <% else %>
+          <%= table.commands.each do |command| %>
+            <% if command.state === true  %>
+              <% command.dishescommands.each do |dishescommand| %>
+                <% if dishescommand.state === true %>
+                  <div class="toserve" style="background-color: red">
+                    <h3><%= dishescommand.drink.name %></h3>
+                  </div>
+                <% else%>
+                  <div class="served" style="background-color: green">
+                    <h3><%= dishescommand.drink.name %></h3>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <%= link_to "créer une table", new_restaurant_table_path(@restaurant.id) %>
+</div>
+
+<div class="menu">
+  <div class="menu_show">
+    <% @existingmenus.each do |menu| %>
+        <%= render 'menus/show', menu: menu %>
+    <% end %>
+  </div>
+</div>
 
 
 

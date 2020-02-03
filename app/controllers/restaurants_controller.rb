@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
     @menu = Menu.new
     authorize(@menu)
     authorize(@restaurant)
-
+    @existingmenus = @restaurant.menus.all
   end
 
   def new
@@ -28,7 +28,6 @@ class RestaurantsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def edit
@@ -41,7 +40,10 @@ class RestaurantsController < ApplicationController
 
   def destroy
     @restaurant = Restaurant.find(params[:id])
+    authorize(@restaurant)
     @restaurant.destroy
+
+    redirect_to dashboard_path
   end
 
   private

@@ -1,0 +1,32 @@
+
+<div class="show_menu d-flex">
+  <div class="menu">
+    <div id="drinks">
+      <% if menu.drinks.blank? %>
+        Add your first Drink
+      <% else %>
+        <div class="soft">
+          <h3>Softs</h3>
+          <% menu.drinks.where(category: "Soft").each do |drink| %>
+          <%= render 'drinks/show', drink: drink %>
+          <% end %>
+        </div>
+
+        <div class="Alcool">
+          <h3>Alcools</h3>
+          <% menu.drinks.where(category: 'Alcool') do |drink| %>
+            <%= render 'drinks/show', drink: drink %>
+          <% end %>
+        </div>
+
+        <div class="soft">
+          <h3>Hotdrinks</h3>
+          <% menu.drinks.where(category: 'Hotdrink') do |drink| %>
+            <%= render 'drinks/show', drink: drink %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

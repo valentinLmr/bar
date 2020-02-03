@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_28_101012) do
+ActiveRecord::Schema.define(version: 2020_02_03_202917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,13 +28,13 @@ ActiveRecord::Schema.define(version: 2020_01_28_101012) do
 
   create_table "commands", force: :cascade do |t|
     t.integer "number_of_diner"
-    t.boolean "states"
     t.date "times"
     t.text "appet", default: [], array: true
     t.bigint "table_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "state", default: true
     t.index ["table_id"], name: "index_commands_on_table_id"
     t.index ["user_id"], name: "index_commands_on_user_id"
   end
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_01_28_101012) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "drink_id"
+    t.boolean "state", default: true
     t.index ["command_id"], name: "index_dishescommands_on_command_id"
     t.index ["drink_id"], name: "index_dishescommands_on_drink_id"
   end
@@ -86,7 +87,7 @@ ActiveRecord::Schema.define(version: 2020_01_28_101012) do
     t.datetime "updated_at", null: false
     t.bigint "restaurant_id"
     t.string "code"
-
+    t.string "otp_secret_key"
     t.string "qr"
     t.index ["restaurant_id"], name: "index_tables_on_restaurant_id"
   end

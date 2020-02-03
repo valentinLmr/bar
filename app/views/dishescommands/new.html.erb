@@ -13,23 +13,25 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <h1>Soft</h1>
-        <% @command.table.restaurant.menu.drinks.where("category = 'soft'").in_groups_of(3, false) do |group| %>
-        <% if group === @command.table.restaurant.menu.drinks.where("category = 'soft'").first(3) %>
-          <div class="carousel-item active ">
-        <% else %>
-           <div class="carousel-item ">
-        <%  end %>
-            <div class="drink_per_5">
-              <% group.each do |drink| %>
-                <div class="card">
-                  <%= image_tag(drink.photo, height: '75', width: '75') %>
-                  <div class="card_info">
-                    <h2 class="soft" data-id="<%= drink.id%>" data-click="0" ><%= drink.name%></h2>
+        <% @command.table.restaurant.menus.each do |menu| %>
+          <% menu.drinks.where("category = 'Soft'").in_groups_of(3, false) do |group| %>
+          <% if group === menu.drinks.where("category = 'Soft'").first(3) %>
+            <div class="carousel-item active ">
+          <% else %>
+             <div class="carousel-item ">
+          <%  end %>
+              <div class="drink_per_5">
+                <% group.each do |drink| %>
+                  <div class="card">
+                    <%= image_tag(drink.photo, height: '75', width: '75') %>
+                    <div class="card_info">
+                      <h2 class="soft" data-id="<%= drink.id%>" data-click="0" ><%= drink.name%></h2>
+                    </div>
                   </div>
-                </div>
-              <% end %>
+                <% end %>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -46,23 +48,25 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <h1>Alcool</h1>
-        <% @command.table.restaurant.menu.drinks.where("category = 'alcool'").in_groups_of(3, false) do |group| %>
-          <% if group === @command.table.restaurant.menu.drinks.where("category = 'alcool'").first(3) %>
-            <div class="carousel-item active ">
-          <% else %>
-             <div class="carousel-item ">
-          <%  end %>
-            <div class="drink_per_5">
-              <% group.each do |drink| %>
-                <div class="card">
-                  <%= image_tag(drink.photo, height: '75', width: '75') %>
-                  <div class="card_info">
-                    <h2 class="soft" data-id="<%= drink.id%>" data-click="0" ><%= drink.name%></h2>
+        <% @command.table.restaurant.menus.each do |menu| %>
+          <% menu.drinks.where("category = 'Alcool'").in_groups_of(3, false) do |group| %>
+            <% if group === menu.drinks.where("category = 'Alcool'").first(3) %>
+              <div class="carousel-item active ">
+            <% else %>
+               <div class="carousel-item ">
+            <%  end %>
+              <div class="drink_per_5">
+                <% group.each do |drink| %>
+                  <div class="card">
+                    <%= image_tag(drink.photo, height: '75', width: '75') %>
+                    <div class="card_info">
+                      <h2 class="soft" data-id="<%= drink.id%>" data-click="0" ><%= drink.name%></h2>
+                    </div>
                   </div>
-                </div>
-              <% end %>
+                <% end %>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
 
@@ -81,12 +85,13 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <h1>Boisson Chaudes</h1>
-        <% @command.table.restaurant.menu.drinks.where("category = 'HotDrink'").in_groups_of(3, false) do |group| %>
-          <% if group === @command.table.restaurant.menu.drinks.where("category = 'HotDrink'").first(3) %>
-            <div class="carousel-item active ">
-          <% else %>
-             <div class="carousel-item ">
-          <%  end %>
+        <% @command.table.restaurant.menus.each do |menu| %>
+          <% menu.drinks.where("category = 'HotDrink'").in_groups_of(3, false) do |group| %>
+            <% if group === menu.drinks.where("category = 'HotDrink'").first(3) %>
+              <div class="carousel-item active ">
+            <% else %>
+               <div class="carousel-item ">
+            <%  end %>
               <div class="drink_per_5">
                 <% group.each do |drink| %>
                   <div class="card">
@@ -98,6 +103,7 @@
                 <% end %>
               </div>
             </div>
+          <% end %>
         <% end %>
       </div>
 

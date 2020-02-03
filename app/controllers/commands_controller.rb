@@ -10,13 +10,18 @@ class CommandsController < ApplicationController
   def new
     @table = Table.find(params[:table_id])
     @command = Command.new
+    authorize @command
   end
 
   def create
+    @user = current_user
     @table = Table.find(params[:table_id])
-
     @command = Command.new(command_params)
     @command.table = @table
+    @command.user = @user
+        authorize @command
+
+
     if @command.save!
       redirect_to new_command_dishescommand_path(@command)
     end

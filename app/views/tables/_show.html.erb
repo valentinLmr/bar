@@ -1,0 +1,26 @@
+
+
+<div>
+  <h4> <%= table.number %> </h4>
+  <div><%= @qr%></div>
+
+  <% if table.commands.blank? %>
+        <h3>Aucune commande pour cette table</h3>
+  <% else %>
+    <%= table.commands.where(states: false) do |command| %>
+      <% command.dishescommands.each do |dishescommand| %>
+        <%= dishescommand.where(state: true) do |served|%>
+          <div class="served" style="background-color: green">
+            <%= served.name %>
+          </div>
+        <% end %>
+
+        <%= dishescommand.where(state: false) do |toserve|%>
+          <div class="tpserve" style="background-color: green">
+            <%= toserve.name %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

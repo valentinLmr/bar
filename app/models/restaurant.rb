@@ -4,7 +4,7 @@ class Restaurant < ApplicationRecord
   validates :phone_number, presence: true
   validates :email, presence: true
   validates :description, presence: true
-  has_many :tables
-  has_many :menus
+  has_many :tables, dependent: :destroy
+  has_many :menus, dependent: :destroy
   belongs_to :user
 end

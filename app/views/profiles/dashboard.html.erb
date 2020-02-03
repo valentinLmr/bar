@@ -1,0 +1,15 @@
+
+<div class="container">
+  <% @restaurants.each do |restaurant| %>
+    <div class="restaurant_dashboard">
+      <%= link_to restaurant_path(restaurant) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+            <%= restaurant.name %>
+        </div>
+      <% end %>
+      <%= link_to restaurant_path(restaurant), method: :delete, data: { confirm: "Souhaitez-vous vraiment supprimer votre restaurant?" } do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>
