@@ -1,0 +1,41 @@
+
+.tables{
+  display: flex;
+  padding: 30px 30px 30px 30px;
+}
+.title_table_restaurant {
+  text-align: center;
+  margin-bottom: 10px
+}
+
+.table {
+  width: 25rem;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  margin: 10px auto;
+  padding: 5px;
+  }
+
+.link_to_new_table{
+  width: 260px;
+  text-align:center;
+
+}
+
+.menu_owner{
+  width: 20rem;
+  text-align: center;
+}
+
+.show_menu{
+  display: flex;
+  justify-content: center;
+}
+
+.eachdrink{
+  justify-content: center;
+}
+
+
+

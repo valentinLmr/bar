@@ -1,31 +1,37 @@
 
-<div class="show_menu d-flex">
+<div class="show_menu">
   <div class="menu">
-    <div id="drinks">
+    <div id="drinks" class="d-flex">
       <% if menu.drinks.blank? %>
         Add your first Drink
       <% else %>
-        <div class="soft">
-          <h3>Softs</h3>
+        <div class="menu_owner">
+            <h3>Softs</h3>
           <% menu.drinks.where(category: "Soft").each do |drink| %>
           <%= render 'drinks/show', drink: drink %>
           <% end %>
         </div>
 
-        <div class="Alcool">
+        <div class="menu_owner">
           <h3>Alcools</h3>
           <% menu.drinks.where(category: 'Alcool') do |drink| %>
             <%= render 'drinks/show', drink: drink %>
           <% end %>
         </div>
 
-        <div class="soft">
+        <div class="menu_owner">
           <h3>Hotdrinks</h3>
           <% menu.drinks.where(category: 'Hotdrink') do |drink| %>
             <%= render 'drinks/show', drink: drink %>
           <% end %>
         </div>
       <% end %>
+    </div>
+    <p><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">New drink</button></p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <%= render 'drinks/new', menu: menu, drink:@drink%>
+      </div>
     </div>
   </div>
 </div>

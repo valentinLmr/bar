@@ -3,73 +3,12 @@
 @import "avatar";
 @import "navbar";
 @import "form_to_new_command";
+@import 'tables';
+@import "drinks_selection";
 
 #title {
   color: white;
   text-align: center;
 }
 
-.drinks_category {
-  font-size: 1.5rem;
-    text-align: center;
 
-}
-
-.soft {
-  text-align: center;
-}
-
-.drink_per_5 {
-  display: flex;
-  }
-.drink_per_5 h2 {
-  margin: auto;
-  font-size: 10px;
-
-}
-
-.carousel-inner h1 {
-  text-align: center;
-  color: white;
-}
-
-.container_all_drinks {
-  height: 100rem;
-}
-
-.carousel {
-  margin-top: 3rem;
-}
-
-.card {
-  margin: auto;
-  width:75px;
-}
-
-.card img {
-  object-fit: cover;
-}
-
-
-.btn {
-    margin: 3rem 0 0 10rem;
-}
-
-.container {
-  width: 50rem;
-}
-
-.card-category {
-  background-size: cover;
-  background-position: center;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
