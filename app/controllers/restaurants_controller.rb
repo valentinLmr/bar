@@ -6,6 +6,8 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @menu = Menu.new
+    @drink = Drink.new
+    authorize(@drink)
     authorize(@menu)
     authorize(@restaurant)
     @existingmenus = @restaurant.menus.all

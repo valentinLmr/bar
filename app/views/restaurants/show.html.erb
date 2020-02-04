@@ -1,37 +1,41 @@
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
   <%= @restaurant.name %>
 </div>
-
-<div class="tables">
-  <div class="table">
+<div>
+  <h3 class="title_table_restaurant"> Your tables</h1>
+  <div class="tables row ">
     <% if @restaurant.tables.blank? %>
-     <h3> vous n'avez pas encore de table</h3>
+      <p> vous n'avez pas encore de table</p>
     <% else %>
       <% @restaurant.tables.each do |table|  %>
-        <h4> <%= table.number %> </h4>
-        <% if table.commands.blank? %>
-              <h3>Aucune commande pour cette table</h3>
-        <% else %>
-          <%= table.commands.each do |command| %>
-            <% if command.state === true  %>
-              <% command.dishescommands.each do |dishescommand| %>
-                <% if dishescommand.state === true %>
-                  <div class="toserve" style="background-color: red">
-                    <h3><%= dishescommand.drink.name %></h3>
-                  </div>
-                <% else%>
-                  <div class="served" style="background-color: green">
-                    <h3><%= dishescommand.drink.name %></h3>
-                  </div>
+        <div class="col-4">
+          <div class="table " >
+            <h4> <%= table.number %> </h4>
+            <% if table.commands.blank? %>
+              <p>Aucune commande pour cette table</p>
+            <% else %>
+              <% table.commands.each do |command| %>
+                <% if command.state === true  %>
+                  <% command.dishescommands.each do |dishescommand| %>
+                    <% if dishescommand.state === true %>
+                      <div class="toserve" style="background-color: rgb(255, 0, 12, 0.5)">
+                        <p><%= dishescommand.drink.name %></p>
+                      </div>
+                    <% else%>
+                      <div class="served" style="background-color: green">
+                        <p><%= dishescommand.drink.name %></p>
+                      </div>
+                    <% end %>
+                  <% end %>
                 <% end %>
               <% end %>
             <% end %>
-          <% end %>
-        <% end %>
+          </div>
+        </div>
       <% end %>
     <% end %>
+    <%= link_to "créer une table", new_restaurant_table_path(@restaurant.id), :class =>"link_to_new_table" %>
   </div>
-  <%= link_to "créer une table", new_restaurant_table_path(@restaurant.id) %>
 </div>
 
 <div class="menu">
