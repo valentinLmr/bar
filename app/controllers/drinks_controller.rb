@@ -10,19 +10,14 @@ class DrinksController < ApplicationController
 
   def create
     @menu = Menu.find(params[:menu_id])
+    @restaurant = @menu.restaurant
     @drink = Drink.new(drink_params)
     @drink.menu = @menu
     authorize(@drink)
-    if @menu.save!
-      respond_to do |format|
-        format.html { redirect_to menu_path(@menu) }
-        format.js { }  # <-- will render `app/views/reviews/create.js.erb`
-      end
+    if @drink.save!
+      redirect_to restaurant_path(@restaurant)
     else
-      respond_to do |format|
-        format.html { render 'menus/show' }
-        format.js { }  # <-- idem
-      end
+      render :new
     end
   end
 
