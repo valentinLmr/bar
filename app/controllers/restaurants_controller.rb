@@ -1,10 +1,12 @@
 class RestaurantsController < ApplicationController
   def index
-    @restaurants = Restaurant.all
+    # @restaurants = Restaurant.all
+    @restaurants = policy_scope(Restaurant)
   end
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @tables = @restaurant.tables
     @menu = Menu.new
     @drink = Drink.new
     authorize(@drink)

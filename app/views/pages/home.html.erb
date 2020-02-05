@@ -1,3 +1,11 @@
-
-<%= link_to "Passer une commande", new_command_path, :class => "btn btn-primary" %>
-<%= link_to "créer un Restau", new_restaurant_path, :class => "btn btn-primary" %>
+<div class="home">
+  <div class="home-content">
+    <div class="title-banner">
+      <h1>Tweeez, L'app qui te fait gagner du temps au bar</h1>
+    </div>
+    <div class="link_banner">
+      <%= link_to "Passe ta commande", new_command_path, :class => "btn btn-primary" %>
+      <%= link_to "Trouve ton Bar", restaurants_path, :class => "btn btn-primary"%>
+    </div>
+  </div>
+</div>
