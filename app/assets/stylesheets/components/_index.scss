@@ -11,4 +11,35 @@
   text-align: center;
 }
 
+.home-content{
+  padding: 7rem 0;
+}
+
+.title-banner{
+  width: 25rem;
+  padding: 1rem 0 0 2rem;
+}
+.home {
+  height: 100vh;
+  background-image: image-url("giphycheers.gif");
+  background-size: cover;
+  background-position: center;
+}
+
+.title-banner h1 {
+  font-family: 'Sigmar One', cursive;
+  color: white;
+  font-size:52px;
+}
+
+.link_banner {
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 1rem;
+}
+
+.link_banner .btn {
+  margin: 1rem;
+}
+
 
