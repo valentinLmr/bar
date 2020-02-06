@@ -1,6 +1,5 @@
 
 <% if @restaurant.user = @user %>
-<%= raise %>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
     <%= @restaurant.name %>
   </div>
@@ -49,14 +48,23 @@
     </div>
   </div>
 <% else %>
-  <% @tables.each do |table| %>
-    <div class="table_show_costumer">
-      <%= link_to table_path(table) do %>
-        <h3><%= table.number %></h3>
-      <% end %>
-    </div>
-  <% end %>
+  <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Select you table
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <% @tables.each do |table| %>
+      <div class="table_show_costumer">
+        <%= link_to table_path(table) do %>
+          <h3><%= table.number %></h3>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
 <% end %>
+
+
 
 
 

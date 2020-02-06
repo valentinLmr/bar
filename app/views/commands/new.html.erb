@@ -1,10 +1,13 @@
-<div class="start">
-  <h1>Bonjours, bienvenu chez <%=@table.restaurant.name  %></h1>
+
+<div class="new-command">
+  <div class="command-header" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <h1><%= @table.restaurant.name.capitalize %></h1>
+    <p>Table n°<%=@table.number%></p>
+  </div>
+
   <%= simple_form_for([@table, @command] ,remote: false)  do|f| %>
-    <%= f.input :number_of_diner, label: 'Combien seriez-vous ?', input_html: { value: ''} %>
+    <%= f.input :number_of_diner, label: 'Combien seriez-vous ?',collection: Command::NUMBERS, input_html: { multiple: true } %>
     <%= f.submit "valider" %>
-    <% end %>
+  <% end %>
+
 </div>
-
-
-

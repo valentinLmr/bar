@@ -1,4 +1,8 @@
-<h1>bonjour bienvenu chez <%= @table.restaurant.name %></h1>
-<h3> Vous êtes intallez à la table numéro <%= @table.number %></h3>
-<div><%= link_to "Créez une nouvelle commandes", new_table_command_path(@table) %></div>
-<div><%= @qr%></div>
+<div class="show-table-content">
+  <div class="table-header" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <h1><%= @table.restaurant.name.capitalize %></h1>
+    <p>Table n°<%=@table.number%></p>
+  </div>
+  <div class="show-table-link"><%= link_to "Créez une nouvelle commandes", new_table_command_path(@table) %></div>
+  <div><%= @qr%></div>
+</div>

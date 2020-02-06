@@ -5,6 +5,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @restaurant = Restaurant.find(params[:id])
     @tables = @restaurant.tables
     @menu = Menu.new
@@ -28,6 +29,21 @@ class RestaurantsController < ApplicationController
     authorize(@restaurant)
     @restaurant.save!
     if @restaurant.save
+      @restaurant.number_of_table.times do
+        @table = Table.new
+
+        if @restaurant.tables.empty?
+          @table.number = 1
+          @table.restaurant = @restaurant
+          authorize(@table)
+          @table.save
+        else
+          @table.number = @restaurant.tables.last.number + 1
+          @table.restaurant = @restaurant
+          authorize(@table)
+          @table.save
+        end
+      end
       redirect_to restaurant_path(@restaurant)
     else
       render :new
@@ -53,6 +69,6 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :phone_number, :email, :description)
+    params.require(:restaurant).permit(:name, :address, :phone_number, :email, :description, :number_of_table)
   end
 end
