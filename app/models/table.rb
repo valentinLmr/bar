@@ -9,4 +9,5 @@ class Table < ApplicationRecord
   #   self.qr = RQRCode::QRCode.new(table_path(@table))
   #   save
   # end
+
 end

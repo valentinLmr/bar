@@ -27,18 +27,64 @@ nono.save
 olivier = User.new(email: 'olivier@gmail.com', password: 'azerty')
 olivier.save
 
+nattan = User.new(email: 'nattan@gmail.com', password: 'azerty')
+nattan.save
+
+florian = User.new(email: 'florian@gmail.com', password: 'azerty')
+florian.save
+
+mathieu = User.new(email: 'mathieu@gmail.com', password: 'azerty')
+mathieu.save
+
+antoine = User.new(email: 'antoine@gmail.com', password: 'azerty')
+antoine.save
+
+anouck = User.new(email: 'anouck@gmail.com', password: 'azerty')
+anouck.save
+
+adrien = User.new(email: 'adrien@gmail.com', password: 'azerty')
+adrien.save
+
+maxence = User.new(email: 'maxence@gmail.com', password: 'azerty')
+maxence.save
+
+cesar = User.new(email: 'cesar@gmail.com', password: 'azerty')
+cesar.save
+
+hubert = User.new(email: 'hubert@gmail.com', password: 'azerty')
+hubert.save
+
+julien = User.new(email: 'julien@gmail.com', password: 'azerty')
+julien.save
+
+
 puts "creating new restaurant"
 user_array = User.all
 
-chez_nono = Restaurant.new(email: 'Nono.cordo@gmail.com', name: 'Nono', phone_number: '0643213243', address: 'Lille', description: "un resto a la <nono></nono>")
+chez_nono = Restaurant.new(email: 'nono@gmail.com', name: 'Terrasse Camphinoise', phone_number: '0643213243', address: 'Lille', number_of_table: 10, description: "Café de village, ambiance chaude et familiale")
 chez_nono.user = nono
 chez_nono.save
 
+alpage = Restaurant.new(email: 'adrien@gmail.com', name: 'alpage', phone_number: '0643213243', address: 'Blandain', number_of_table: 10, description: "Brasserie Belge avec plus de 700 bières")
+alpage.user = adrien
+alpage.save
+
+saighin = Restaurant.new(email: 'maxence@gmail.com', name: 'Au ptitvsaighin', phone_number: '0643213243', address: 'Saignhin', number_of_table: 10, description: "Restaurant à viande")
+saighin.user = maxence
+saighin.save
+
+marie = Restaurant.new(email: 'mathieu@gmail.com', name: 'marie', phone_number: '0643213243', address: 'Whannehain', number_of_table: 10, description: "Bar/snack de village")
+marie.user = mathieu
+marie.save
+
+vieux = Restaurant.new(email: 'julien@gmail.com', name: 'vieux de la vieille', phone_number: '0643213243', address: 'Blandain', number_of_table: 10, description: "Brasserie Belge avec plus de 700 bières")
+vieux.user = julien
+vieux.save
+
 puts "creating table"
 
-nono_1 = Table.new(number: 1)
-nono_1.restaurant = chez_nono
-nono_1.save
+restaurants = Restaurant.all
+
 
 puts "creating Menu"
 
