@@ -33,9 +33,20 @@ class DishescommandsController < ApplicationController
   end
 
   def edit
+    @dishescommand = Dishescommand.find(params[:id])
+    authorize(@dishescommand)
   end
 
   def update
+    @dishescommand = Dishescommand.find(params[:id])
+    @restaurant = @dishescommand.command.table.restaurant
+    authorize(@dishescommand)
+
+    if @dishescommand.update(dishescommand_params)
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -45,5 +56,9 @@ class DishescommandsController < ApplicationController
 
   def dishescommands_params
     params.require(:dishescommand).permit(:drink_id)
+  end
+
+  def dishescommand_params
+    params.require(:dishescommand).permit(:state)
   end
 end
