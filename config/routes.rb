@@ -28,3 +28,19 @@ Rails.application.routes.draw do
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end
+
+
+  # resources :restaurants do
+  #   resources :tables do
+  #     resources :commands do
+  #       resources :dishescommands
+  #     end
+  #   end
+  # end
+
+
+  #  resources :restaurants do
+  #   resources :menus do
+  #     resources :drinks
+  #   end
+  # end

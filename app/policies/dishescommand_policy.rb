@@ -12,4 +12,16 @@ class DishescommandPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def destroy?
+    (record.command.table.restaurant.user == user) || (record.user == user)
+  end
+
+  def edit?
+    update?
+  end
+
+  def update?
+    (record.command.table.restaurant.user == user) || (record.user == user)
+  end
 end

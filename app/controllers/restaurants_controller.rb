@@ -5,6 +5,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @restaurant = Restaurant.find(params[:id])
     @tables = @restaurant.tables
     @menu = Menu.new
@@ -36,10 +37,19 @@ class RestaurantsController < ApplicationController
 
   def edit
     @restaurant = Restaurant.find(params[:id])
+    @dishescommand = Dishescommand.find(params[:id])
+    authorize @restaurant
+    authorize @dishescommand
   end
 
   def update
     @restaurant = Restaurant.find(params[:id])
+    authorize @restaurant
+    if @restaurant.update(params[:state])
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :edit
+    end
   end
 
   def destroy

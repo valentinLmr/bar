@@ -59,7 +59,7 @@ nono_menu.save
 # Drink.create!(name: 'Coca Cola zero', price: '5.00', menu_id: 1, category: 'soft', photo: 'cocazero.gif' )
 # Drink.create!(name: 'Coca Cola light', price: '5.00', menu_id: 1, category: 'soft', photo: 'cocalight.png' )
 # Drink.create!(name: 'Oasis', price: '5.00', menu_id: 1, category: 'soft', photo: 'oasis.png' )
-# Drink.create!(name: 'Ice Tie', price: '5.00', menu_id: 1, category: 'soft', photo: 'icetea.png' )
+# Drink.create!(name: 'Ice Tie', price: '5.00', menu_id: 1, category: 'soft', photo: 'c' )
 # Drink.create!(name: 'Perrier', price: '5.00', menu_id: 1, category: 'soft', photo: 'perrier.png' )
 # Drink.create!(name: 'Evian', price: '5.00', menu_id: 1, category: 'soft', photo: 'evian.png' )
 # Drink.create!(name: 'Jus de tomate', price: '5.00', menu_id: 1, category: 'soft', photo: 'granini.png' )

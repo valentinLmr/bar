@@ -1,6 +1,5 @@
 
 <% if @restaurant.user = @user %>
-<%= raise %>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
     <%= @restaurant.name %>
   </div>
@@ -20,13 +19,25 @@
                 <% table.commands.each do |command| %>
                   <% if command.state === true  %>
                     <% command.dishescommands.each do |dishescommand| %>
-                      <% if dishescommand.state === true %>
-                        <div class="toserve" style="background-color: rgb(255, 0, 12, 0.5)">
-                          <p><%= dishescommand.drink.name %></p>
+                      <% if dishescommand.state === false %>
+                        <div class="toserve d-flex" style="background-color: rgb(255, 0, 12, 0.5); justify-content:center;">
+                          <p data-state="<%=dishescommand.state %>" style="margin: auto"><%= dishescommand.drink.name %></p>
+                          <div class="form-state-drink" style="margin: auto">
+                            <%= simple_form_for [command, dishescommand] do |f|%>
+                              <%= f.input :state, label: false,input_html: { class: "input-change-state" }  %>
+                              <%= f.submit :as => :hidden, class: "btn-submit-change-state hidden"   %>
+                            <% end %>
+                          </div>
                         </div>
                       <% else%>
-                        <div class="served" style="background-color: green">
-                          <p><%= dishescommand.drink.name %></p>
+                        <div class="served d-flex" style="background-color: green; justify-content:center">
+                          <p data-state="<%=dishescommand.state %>" style="margin: auto"><%= dishescommand.drink.name %></p>
+                            <div class="form-state-drink" style="margin: auto">
+                              <%= simple_form_for [command, dishescommand] do |f|%>
+                                <%= f.input :state, label: false,input_html: { class: "input-change-state" }  %>
+                                <%= f.submit :as => :hidden, class: "btn-submit-change-state hidden"   %>
+                              <% end %>
+                            </div>
                         </div>
                       <% end %>
                     <% end %>
