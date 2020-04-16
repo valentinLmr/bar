@@ -19,6 +19,8 @@ Command.destroy_all
 
 
 
+
+
 puts "creating new users"
 
 nono = User.new(email: 'remi.cordo@gmail.com', password: 'azerty')
@@ -46,32 +48,33 @@ nono_menu = Menu.new(restaurant: chez_nono)
 nono_menu.save
 
 
-# puts "creating Appetizer"
+puts "creating Appetizer"
 
 
-# Drink.create!(name: 'Anosteke', price: '5.00', menu_id: 1, category: 'alcool', photo: 'anosteke.png' )
-# Drink.create!(name: 'Leffe 25 Cl', price: '5.00', menu_id: 1, category: 'alcool', photo: 'Leffe.png' )
-# Drink.create!(name: 'Leffe 50 Cl', price: '5.00', menu_id: 1, category: 'alcool', photo: 'Leffe.png' )
-# Drink.create!(name: 'Gulden Draak 33 Cl', price: '5.00', menu_id: 1, category: 'alcool', photo: 'Gulden.png' )
-# Drink.create!(name: 'Paix Dieux 50 Cl', price: '5.00', menu_id: 1, category: 'alcool', photo: 'paixdieux.png' )
-# Drink.create!(name: '3 monts 33 Cl', price: '5.00', menu_id: 1, category: 'alcool', photo:'3monts.png' )
-# Drink.create!(name: "Ch'ti", price: '5.00', menu_id: 1, category: 'alcool', photo: 'chti.png' )
-# Drink.create!(name: 'Coca Cola zero', price: '5.00', menu_id: 1, category: 'soft', photo: 'cocazero.gif' )
-# Drink.create!(name: 'Coca Cola light', price: '5.00', menu_id: 1, category: 'soft', photo: 'cocalight.png' )
-# Drink.create!(name: 'Oasis', price: '5.00', menu_id: 1, category: 'soft', photo: 'oasis.png' )
-# Drink.create!(name: 'Ice Tie', price: '5.00', menu_id: 1, category: 'soft', photo: 'c' )
-# Drink.create!(name: 'Perrier', price: '5.00', menu_id: 1, category: 'soft', photo: 'perrier.png' )
-# Drink.create!(name: 'Evian', price: '5.00', menu_id: 1, category: 'soft', photo: 'evian.png' )
-# Drink.create!(name: 'Jus de tomate', price: '5.00', menu_id: 1, category: 'soft', photo: 'granini.png' )
-# Drink.create!(name: 'Jus de Ananas', price: '5.00', menu_id: 1, category: 'soft', photo: 'granini.png' )
-# Drink.create!(name: 'Jus de Pomme', price: '5.00', menu_id: 1, category: 'soft', photo: 'granini.png' )
-# Drink.create!(name: 'Jus de Orane', price: '5.00', menu_id: 1, category: 'soft', photo: 'granini.png' )
-# Drink.create!(name: 'Chocolat chaud', price: '5.00', menu_id: 1, category: 'HotDrink', photo: 'chocochaud.png' )
-# Drink.create!(name: 'Expresso', price: '5.00', menu_id: 1, category: 'HotDrink', photo: 'espreso.png' )
-# Drink.create!(name: 'Café Viennois', price: '5.00', menu_id: 1, category: 'HotDrink', photo: 'cafeviennois.png' )
-# Drink.create!(name: 'Café au lait', price: '5.00', menu_id: 1, category: 'HotDrink', photo: 'cafeaulait.png' )
-# Drink.create!(name: 'Café allongé', price: '5.00', menu_id: 1, category: 'HotDrink', photo: 'cafeallonge.png' )
-# Drink.create!(name: 'Chocolat Viennois', price: '5.00', menu_id: 1, category: 'HotDrink', photo: 'chocolatviennois.png' )
+Drink.create!(name: 'Anosteke', price: '5.00', menu: nono_menu, category: 'alcool', photo: 'anosteke.png' )
+puts 'pass'
+Drink.create!(name: 'Leffe 25 Cl', price: '5.00', menu: nono_menu, category: 'alcool', photo: 'Leffe.png' )
+Drink.create!(name: 'Leffe 50 Cl', price: '5.00', menu: nono_menu, category: 'alcool', photo: 'Leffe.png' )
+Drink.create!(name: 'Gulden Draak 33 Cl', price: '5.00', menu: nono_menu, category: 'alcool', photo: 'Gulden.png' )
+Drink.create!(name: 'Paix Dieux 50 Cl', price: '5.00', menu: nono_menu, category: 'alcool', photo: 'paixdieux.png' )
+Drink.create!(name: '3 monts 33 Cl', price: '5.00', menu: nono_menu, category: 'alcool', photo:'3monts.png' )
+Drink.create!(name: "Ch'ti", price: '5.00', menu: nono_menu, category: 'alcool', photo: 'chti.png' )
+Drink.create!(name: 'Coca Cola zero', price: '5.00', menu: nono_menu, category: 'soft', photo: 'cocazero.gif' )
+Drink.create!(name: 'Coca Cola light', price: '5.00', menu: nono_menu, category: 'soft', photo: 'cocalight.png' )
+Drink.create!(name: 'Oasis', price: '5.00', menu: nono_menu, category: 'soft', photo: 'oasis.png' )
+Drink.create!(name: 'Ice Tie', price: '5.00', menu: nono_menu, category: 'soft', photo: 'c' )
+Drink.create!(name: 'Perrier', price: '5.00', menu: nono_menu, category: 'soft', photo: 'perrier.png' )
+Drink.create!(name: 'Evian', price: '5.00', menu: nono_menu, category: 'soft', photo: 'evian.png' )
+Drink.create!(name: 'Jus de tomate', price: '5.00', menu: nono_menu, category: 'soft', photo: 'granini.png' )
+Drink.create!(name: 'Jus de Ananas', price: '5.00', menu: nono_menu, category: 'soft', photo: 'granini.png' )
+Drink.create!(name: 'Jus de Pomme', price: '5.00', menu: nono_menu, category: 'soft', photo: 'granini.png' )
+Drink.create!(name: 'Jus de Orane', price: '5.00', menu: nono_menu, category: 'soft', photo: 'granini.png' )
+Drink.create!(name: 'Chocolat chaud', price: '5.00', menu: nono_menu, category: 'HotDrink', photo: 'chocochaud.png' )
+Drink.create!(name: 'Expresso', price: '5.00', menu: nono_menu, category: 'HotDrink', photo: 'espreso.png' )
+Drink.create!(name: 'Café Viennois', price: '5.00', menu: nono_menu, category: 'HotDrink', photo: 'cafeviennois.png' )
+Drink.create!(name: 'Café au lait', price: '5.00', menu: nono_menu, category: 'HotDrink', photo: 'cafeaulait.png' )
+Drink.create!(name: 'Café allongé', price: '5.00', menu: nono_menu, category: 'HotDrink', photo: 'cafeallonge.png' )
+Drink.create!(name: 'Chocolat Viennois', price: '5.00', menu: nono_menu, category: 'HotDrink', photo: 'chocolatviennois.png' )
 
 
 # puts "create command"
