@@ -1,0 +1,15 @@
+
+.AboutContainer{
+    height: auto;
+}
+
+.DivContainer{
+    display: flex;
+}
+
+@media (max-width: 700px) {
+        
+    .DivContainer{
+        display: block;
+    }
+}

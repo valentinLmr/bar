@@ -1,0 +1,55 @@
+
+
+
+.Projet{
+    list-style-type: none;
+    width: 50%;
+    height: 50vh;
+    box-sizing: border-box;
+    align-self: auto;
+    position: relative;
+    display: block;
+    background-position: center;
+}
+
+.Hover{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    position: absolute
+}
+.Hover:hover{
+    opacity: 0.5;
+    color: white;
+}
+.Hover h3{
+    font-size: 35px;
+    height: 80%;
+    margin: 10px 0;
+}
+
+
+.Line{
+    width: 80%;
+    background-color: white;
+    margin: auto;
+    height: 2px;
+}
+
+@media (max-width:1030px) {
+
+    .Projet{
+        width: 100%;
+        height: 38vh;
+    }
+}
+
+@media (max-width:500px) {
+
+    .Projet{
+        width: 100%;
+        height: 28vh;
+    }
+}

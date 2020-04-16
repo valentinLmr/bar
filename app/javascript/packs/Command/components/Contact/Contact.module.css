@@ -1,0 +1,53 @@
+.ContactContainer{
+    width: 100%;
+    background-color:#1B1E29 ;
+    color: white;
+    box-sizing: border-box;
+    height: auto;
+    margin-top: 50px;
+    
+}
+
+.ContactContainer h2{ 
+    font-size: 40px;
+    text-align: center;
+    padding-top: 10vh;
+}
+
+.Contact{
+    display: flex;
+    font-size: 26px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 10vh 0;
+}
+
+.Contact p {
+    font-size: 16px;
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.ListReseau{
+    justify-content: center;
+}
+
+.ListReseau p{
+    width: 100%;
+   margin: 0 auto;
+} 
+
+.ListReseau i {
+   margin: 0 10px 0 10px
+}
+
+@media (max-width: 900px) {
+    .Contact{
+        display:block;
+    }
+
+    .Contact p {
+        width: 100%;
+    }
+}

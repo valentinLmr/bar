@@ -1,0 +1,53 @@
+.Years{
+    color: #1C1F29;
+    display: flex;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    margin: auto;
+    justify-content: space-evenly;
+}
+
+.Years h3{
+    font-size: 32px;
+}
+
+.Description {
+    color: #1C1F29;
+    text-align: justify;;
+    width: 75%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.Description  h3 {
+    margin: 50px 0;
+}
+
+.Actif{
+    color: #DB1867;
+    text-decoration: underline;
+}
+
+.Year:hover{
+    cursor: pointer;
+}
+
+.Pdf{
+    width:100%;
+    height:150px;
+    text-align: center; 
+    padding: 15px
+}
+
+.Pdf img {
+    width: 100px;
+    height: 100px
+}
+
+
+@media (max-width: 700px) {
+    .Years h3{
+        font-size: 24px;
+    }
+}

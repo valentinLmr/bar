@@ -1,0 +1,23 @@
+
+.InfosContainer{
+    width: 40%;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.Infos{
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    align-content: center;
+    width: 100%
+}
+@media (max-width: 700px) {
+
+    .InfosContainer{
+        width: 100%;        
+        height: auto;
+        margin: 0 auto;
+    }
+}
