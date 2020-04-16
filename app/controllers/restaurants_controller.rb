@@ -4,22 +4,11 @@ class RestaurantsController < ApplicationController
     @restaurants = policy_scope(Restaurant)
   end
 
-  def show
-    @user = current_user
-    @restaurant = Restaurant.find(params[:id])
-    @tables = @restaurant.tables
-    @menu = Menu.new
-    @drink = Drink.new
-    authorize(@drink)
-    authorize(@menu)
-    authorize(@restaurant)
-    @existingmenus = @restaurant.menus.all
-  end
+  
 
   def new
-    @user = current_user
-    @restaurant = Restaurant.new
 
+    @restaurant = Restaurant.new
     authorize(@restaurant)
   end
 
@@ -35,22 +24,38 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  def edit
+  def show
     @restaurant = Restaurant.find(params[:id])
-    @dishescommand = Dishescommand.find(params[:id])
-    authorize @restaurant
-    authorize @dishescommand
+    @user = current_user
+    @userId = @user.id
+    @id = @restaurant.id
+  
+
+    @tables = @restaurant.tables
+    @menu = Menu.new
+    @drink = Drink.new
+    authorize(@drink)
+    authorize(@menu)
+    authorize(@restaurant)
+    @existingmenus = @restaurant.menus.all
   end
 
-  def update
-    @restaurant = Restaurant.find(params[:id])
-    authorize @restaurant
-    if @restaurant.update(params[:state])
-      redirect_to restaurant_path(@restaurant)
-    else
-      render :edit
-    end
-  end
+  # def edit
+  #   @restaurant = Restaurant.find(params[:id])
+  #   @dishescommand = Dishescommand.find(params[:id])
+  #   authorize @restaurant
+  #   authorize @dishescommand
+  # end
+
+  # def update
+  #   @restaurant = Restaurant.find(params[:id])
+  #   authorize @restaurant
+  #   if @restaurant.update(params[:state])
+  #     redirect_to restaurant_path(@restaurant)
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   def destroy
     @restaurant = Restaurant.find(params[:id])
@@ -63,6 +68,6 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :phone_number, :email, :description)
+    params.require(:restaurant).permit(:name, :address, :phone_number, :email, :description, :user)
   end
 end

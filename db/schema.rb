@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 2020_02_07_113131) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "number_of_table", default: 0
     t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
@@ -87,8 +86,6 @@ ActiveRecord::Schema.define(version: 2020_02_07_113131) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "restaurant_id"
-    t.string "code"
-    t.string "otp_secret_key"
     t.string "qr"
     t.index ["restaurant_id"], name: "index_tables_on_restaurant_id"
   end

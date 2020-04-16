@@ -1,5 +1,5 @@
 
-<% if @restaurant.user = @user %>
+ <% if @userId === @restaurant.user_id %>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
     <%= @restaurant.name %>
   </div>
@@ -48,7 +48,7 @@
           </div>
         <% end %>
       <% end %>
-      <%= link_to "créer une table", new_restaurant_table_path(@restaurant.id), :class =>"link_to_new_table" %>
+            <%= link_to "créer une table", new_restaurant_table_path(@restaurant.id), :class =>"link_to_new_table" %>
     </div>
   </div>
 
@@ -59,15 +59,27 @@
       <% end %>
     </div>
   </div>
-<% else %>
-  <% @tables.each do |table| %>
-    <div class="table_show_costumer">
-      <%= link_to table_path(table) do %>
-        <h3><%= table.number %></h3>
-      <% end %>
+<%else%>
+  <div class="table_show_costumer">
+    <h1>Choisissez votre table</h1>
+
+
+  
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <% @tables.each do |table| %>
+          <%= link_to table_path(table) do %>
+            <h3 class="dropdown-item"><%= table.number %></h3>
+          <% end %>
+        <%end%>
+      </div>
     </div>
-  <% end %>
-<% end %>
+  </div>
+<%end%>
+
 
 
 
