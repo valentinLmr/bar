@@ -1,4 +1,5 @@
-<h1>bonjour bienvenu chez <%= @table.restaurant.name %></h1>
-<h3> Vous êtes intallez à la table numéro <%= @table.number %></h3>
-<div><%= link_to "Créez une nouvelle commandes", new_table_command_path(@table) %></div>
-<div><%= @qr%></div>
+<div class="showTable">
+    <h3> Vous êtes intallez à la table numéro <%= @table.number %></h3>
+    <div><%= link_to "Créez une nouvelle commandes", new_table_command_path(@table) %></div>
+    <div><%= @qr%></div>
+</div>

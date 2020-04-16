@@ -5,6 +5,7 @@
 @import "form_to_new_command";
 @import 'tables';
 @import "drinks_selection";
+@import "restaurant";
 
 #title {
   color: white;
@@ -40,6 +41,10 @@
 
 .link_banner .btn {
   margin: 1rem;
+}
+
+.container{
+  margin-top: 20vh;
 }
 
 
